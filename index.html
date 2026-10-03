@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SafeBank - simple, secure digital banking.">
+  <title>SafeBank | Digital banking made simple</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a class="brand" href="#" data-view="dashboard">
+        <span class="brand-mark">S</span>
+        <span>Safe<span class="brand-accent">Bank</span></span>
+      </a>
+      <p class="nav-label">Menu</p>
+      <nav class="nav-list">
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span> Overview</button>
+        <button class="nav-item" data-view="transactions"><span>↔</span> Transactions</button>
+        <button class="nav-item" data-view="loans"><span>▣</span> Loans</button>
+        <button class="nav-item" data-view="calculator"><span>⌁</span> Loan calculator</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <span class="help-icon">?</span>
+          <strong>Need help?</strong>
+          <p>Our support team is here for you.</p>
+          <button class="text-button" id="support-button">Contact support <span>→</span></button>
+        </div>
+        <button class="nav-item sign-out" id="sign-out"><span>↪</span> Sign out</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Saturday, October 3, 2026</p>
+          <h1 id="page-title">Good morning, Alex <span aria-hidden="true">✦</span></h1>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-button" aria-label="Notifications" id="notification-button">♢<span class="notification-dot"></span></button>
+          <div class="profile">
+            <span class="avatar">AM</span>
+            <span class="profile-name">Alex Morgan</span>
+            <span class="profile-chevron">⌄</span>
+          </div>
+        </div>
+      </header>
+
+      <div id="app-view">
+        <section class="view" data-view-panel="dashboard">
+          <div class="hero-grid">
+            <article class="balance-card">
+              <div class="balance-card-top">
+                <span class="card-label">Total balance</span>
+                <button class="more-button" aria-label="More balance options">•••</button>
+              </div>
+              <p class="balance-amount" id="balance-amount">$24,562.80</p>
+              <p class="balance-change"><span>↗ 4.8%</span> compared to last month</p>
+              <div class="card-number">•••• &nbsp; •••• &nbsp; •••• &nbsp; 4821 <span>VISA</span></div>
+            </article>
+            <div class="quick-actions">
+              <div class="section-heading"><h2>Quick actions</h2></div>
+              <div class="action-grid">
+                <button class="action-button" data-toast="Transfer flow opened"><span class="action-icon blue">↗</span><strong>Transfer</strong><small>Send money</small></button>
+                <button class="action-button" data-toast="Add money flow opened"><span class="action-icon green">＋</span><strong>Add money</strong><small>Top up account</small></button>
+                <button class="action-button" data-toast="Pay bill flow opened"><span class="action-icon orange">▤</span><strong>Pay a bill</strong><small>Manage payments</small></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-grid">
+            <section class="panel transactions-panel">
+              <div class="panel-header">
+                <div><p class="eyebrow">Activity</p><h2>Recent transactions</h2></div>
+                <button class="link-button" data-view="transactions">View all <span>→</span></button>
+              </div>
+              <div class="transaction-list" id="recent-transactions"></div>
+            </section>
+            <section class="panel spending-panel">
+              <div class="panel-header"><div><p class="eyebrow">This month</p><h2>Spending</h2></div><button class="more-button">•••</button></div>
+              <div class="spending-total">$2,438.20 <span>of $4,000</span></div>
+              <div class="progress"><span></span></div>
+              <div class="spending-legend"><span><i class="dot blue-dot"></i>Essentials <b>$1,620</b></span><span><i class="dot orange-dot"></i>Leisure <b>$818</b></span></div>
+              <div class="mini-chart" aria-label="Spending trend chart"><span style="height: 35%"></span><span style="height: 52%"></span><span style="height: 42%"></span><span style="height: 68%"></span><span style="height: 55%"></span><span style="height: 78%"></span><span style="height: 64%"></span><span style="height: 91%"></span></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="view hidden" data-view-panel="transactions">
+          <section class="panel full-panel">
+            <div class="panel-header"><div><p class="eyebrow">Account activity</p><h2>All transactions</h2></div><button class="filter-button">↕ Filter</button></div>
+            <div class="transaction-list" id="all-transactions"></div>
+          </section>
+        </section>
+
+        <section class="view hidden" data-view-panel="loans">
+          <div class="page-intro"><div><p class="eyebrow">Borrow with confidence</p><h2>Loans made for your next step.</h2><p>Flexible options, transparent rates, and a simple application process.</p></div><button class="primary-button" data-view="calculator">Calculate a payment <span>→</span></button></div>
+          <div class="loan-grid">
+            <article class="loan-card"><span class="loan-icon blue">⌂</span><h3>Home loan</h3><p>Make your dream home a reality with competitive fixed rates.</p><strong>From 5.49% APR</strong><button class="outline-button" data-toast="Home loan application started">Learn more →</button></article>
+            <article class="loan-card"><span class="loan-icon green">🚗</span><h3>Auto loan</h3><p>Get on the road with flexible terms built around your budget.</p><strong>From 6.25% APR</strong><button class="outline-button" data-toast="Auto loan application started">Learn more →</button></article>
+            <article class="loan-card"><span class="loan-icon orange">✦</span><h3>Personal loan</h3><p>Cover the unexpected or fund something important to you.</p><strong>From 8.99% APR</strong><button class="outline-button" data-toast="Personal loan application started">Learn more →</button></article>
+          </div>
+        </section>
+
+        <section class="view hidden" data-view-panel="calculator">
+          <section class="calculator-layout">
+            <div class="page-intro"><div><p class="eyebrow">Plan ahead</p><h2>Loan calculator</h2><p>Estimate your monthly payment before you apply.</p></div></div>
+            <div class="calculator-card">
+              <label for="loan-amount">Loan amount <output id="amount-output">$25,000</output></label>
+              <input id="loan-amount" type="range" min="1000" max="100000" step="500" value="25000">
+              <div class="range-labels"><span>$1,000</span><span>$100,000</span></div>
+              <label for="loan-term">Loan term <output id="term-output">5 years</output></label>
+              <input id="loan-term" type="range" min="1" max="10" value="5">
+              <div class="range-labels"><span>1 year</span><span>10 years</span></div>
+              <label for="interest-rate">Estimated interest rate <output id="rate-output">8.99%</output></label>
+              <input id="interest-rate" type="range" min="3" max="18" step="0.01" value="8.99">
+              <div class="range-labels"><span>3%</span><span>18%</span></div>
+            </div>
+            <aside class="payment-card"><p class="eyebrow">Estimated monthly payment</p><strong id="payment-output">$518.18</strong><p>Principal and interest. Your final rate may vary.</p><button class="primary-button" data-toast="Loan application started">Apply for a loan <span>→</span></button></aside>
+          </section>
+        </section>
+      </div>
+    </main>
+  </div>
+  <div class="toast" role="status" aria-live="polite" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>

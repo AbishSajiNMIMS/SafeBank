@@ -1,4 +1,25 @@
-# SafeBank
-SafeBank - Android Banking App (Java)  Day 1 Progress: - Multi-screen navigation (Home → Account) - Account module UI with 5 core banking features - SQLite integration for storing account balance - Functional Check Balance feature  Tech Stack: - Java (Android) - XML UI - SQLite Database  More features coming: Transactions, Loans,Bills,Stock graphs.
+# SafeBank Webpage
 
-Day 2: I created the login page, home page, loan type page and the loan calcualtor
+This branch contains a responsive static webpage based on the SafeBank Android app in `main`.
+
+## Included
+
+- `index.html` - SafeBank dashboard, transactions, loan products, and loan calculator.
+- `style.css` - Responsive layout and visual styling.
+- `app.js` - Client-side navigation, transaction rendering, notifications, and loan-payment calculation.
+
+The page uses sample data only. It does not connect to a real banking account or process payments.
+
+## Run locally
+
+Open `index.html` directly in a browser, or serve the folder with any static web server:
+
+```bash
+python -m http.server 8000
+```
+
+Then visit `http://localhost:8000`.
+
+## Source feature mapping
+
+The webpage reflects the current Android progress documented on `main`: login/home navigation, account balance, transactions, loan types, and the loan calculator. It is intentionally frontend-only so it can later be connected to the Android app's SQLite-backed services or an API.
